@@ -217,7 +217,7 @@ const  loadProject = async(id, silent=false) =>{
 
             useEffect(()=>{
               return ()=>{
-                debouncedSave.cancel();
+                debouncedSave.flush();
               }
             },[debouncedSave])
 
@@ -252,7 +252,8 @@ const  loadProject = async(id, silent=false) =>{
         handleGenerate,
         handleDelete,
         logout,
-        updateProjectFiles
+        updateProjectFiles,
+        handleChat
        }}
     >
       {children}
