@@ -5,7 +5,7 @@ export function authMiddleware(req, res, next){
 
 
     if(!token){
-        res.status(401).json({error:"Access denied. No session token provided."})
+        return res.status(401).json({error:"Access denied. No session token provided."})
     }
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET || "fallback_secret");

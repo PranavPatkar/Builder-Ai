@@ -10,5 +10,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@ai-sdk/openai": "^4.0.71",
+    "ai": "^7.0.107",
+    "p-map": "^7.0.8",
+    "zod": "^4.6.5"
+  }
 }
