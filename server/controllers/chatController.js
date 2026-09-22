@@ -1,5 +1,5 @@
 import { hash, size } from "zod";
-import { Project } from "../models/Project";
+import { Project } from "../models/Project.js";
 import { reviseProject } from "../services/ai.js";
 import { applyOperations } from "../services/diff.js";
 
@@ -28,7 +28,7 @@ export async function chat(req, res){
         return;
     }
 
-    const project = Project.findOne({_id: req.params.id, owner:req.user.userId});
+    const project = await Project.findOne({_id: req.params.id, owner:req.user.userId});
 
     if(!project){
         res.status(404).json({error: "Project not found"})
@@ -72,7 +72,7 @@ export async function chat(req, res){
         const {files: updatedFiles, applied, errors } = applyOperations(project.files , result.operations)
 
         if(errors.length > 0){
-            console.warn(`[Diff] Errors applying operations:`, operations);
+            console.warn(`[Diff] Errors applying operations:`, result.operations);
         }
 
         //Update project in DB

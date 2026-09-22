@@ -29,10 +29,10 @@ useEffect(()=>{
                         )}
                     </div>
                     <div className='flex-1 min-w-0'>
-                        <p className='text-xs font-medium text-zinc-500 mb-1 uppercasetracking-wider'>
+                        <p className='text-xs font-medium text-zinc-500 mb-1 uppercase tracking-wider'>
                             {msg.role === "user" ? "You" : "AI"}
                         </p>
-                        <p className='text-[13px] text-zinc-700 leading-5 tracking-wider whitespace-pre-wrap wrap-brak-word'>
+                        <p className='text-[13px] text-zinc-700 leading-5 tracking-wider whitespace-pre-wrap break-word'>
                                 {msg.content.split("- `/").map((text , i)=>(
                                     <span key={i} className='block mt-3'>
                                         <span className={i===0 ? "hidden" :""}>- `/</span>

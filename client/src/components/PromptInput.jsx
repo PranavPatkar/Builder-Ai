@@ -75,7 +75,7 @@ const PromptInput = ({onSubmit ,loading = false, placeholder = "Describe the web
 
   return (
     <div className={`bg-white border border-zinc-200 rounded-xl flex items-end gap-2
-    focus-within:ring-1 focus-within:ringzinc-300 transition ${large ? "p-4" : "p-3"}`}>
+    focus-within:ring-1 focus-within:ring-zinc-300 transition ${large ? "p-4" : "p-3"}`}>
 
         <textarea ref= {textareaRef} 
         value={value} 
@@ -88,7 +88,7 @@ const PromptInput = ({onSubmit ,loading = false, placeholder = "Describe the web
         <button onClick={()=> handleSubmit()}
         disabled={!value.trim() || loading}
         className='inline-flex items-center justify-center bg-zinc-950 text-white
-        hover:bg-zinc-800 disabled:opacity-40 cursor-pointer rounded-full sshrink-0'
+        hover:bg-zinc-800 disabled:opacity-40 cursor-pointer rounded-full shrink-0'
         style={{
             width: large ? 36 : 24,
             height: large ? 36 : 24 
