@@ -9,15 +9,15 @@ const userSchema = new Schema({
 },{timestamps: true})
 
 //Hash paasword before saving
-userSchema.pre('save',async () => {
+userSchema.pre('save',async function() {
     if(!this.isModified('password')) return;
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password,salt)
 })
 
 //Compare password method
-UserSchema.methods.comparePassword = async function name(password) {
+userSchema.methods.comparePassword = async function name(password) {
     return bcrypt.compare(password, this.password)
 }
 
-export const User = mongoose.model('User',UserSchema)
+export const User = mongoose.model('User',userSchema)
